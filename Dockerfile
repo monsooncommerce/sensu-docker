@@ -25,4 +25,4 @@ RUN chown -R rabbitmq. /etc/rabbitmq
 EXPOSE 15672
 EXPOSE 8080
 ADD start.sh /tmp/start.sh
-CMD /tmp/start.sh
+CMD /bin/bash /tmp/start.sh
