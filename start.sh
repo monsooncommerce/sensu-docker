@@ -8,7 +8,7 @@ rabbitmqctl add_user sensu mypass
 rabbitmqctl set_permissions -p /sensu sensu ".*" ".*" ".*"
 rabbitmqctl set_user_tags sensu administrator
 
-/sbin/service redis-server start
+/sbin/service redis start
 /sbin/service sensu-server start
 /sbin/service sensu-api start
 /sbin/service sensu-client start
