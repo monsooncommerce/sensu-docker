@@ -10,7 +10,6 @@ RUN rabbitmq-plugins enable rabbitmq_management
 
 RUN mkdir -p /var/run/sshd
 RUN chmod -rx /var/run/sshd
-RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 
 RUN useradd -d /home/sensu -m -s /bin/bash sensu
 RUN echo sensu:sensu | chpasswd
@@ -29,4 +28,5 @@ RUN chown -R rabbitmq. /etc/rabbitmq
 EXPOSE 15672
 EXPOSE 8080
 ADD start.sh /tmp/start.sh
+CMD ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 CMD /bin/bash /tmp/start.sh
