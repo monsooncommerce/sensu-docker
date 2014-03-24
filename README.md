@@ -4,9 +4,11 @@ sensu-docker
 Dockerfile to Create a CentOS 6.x Sensu Server
 Initially forked from https://github.com/petecheslock/sensu-docker
 
-Grab the original Ubuntu-based container from the docker index here.  https://index.docker.io/u/steeef/sensu-docker
+Grab the original Ubuntu-based container from the docker index here.  https://index.docker.io/u/steeef/sensu-centos
 
 This is for testing only - SSL is not setup/configured for the server and clients.
+Installs Erlang from source since EPEL-provided RPM includes dependencies for
+X11 libs.
 
 Port `15672` is where the rabbitmq management dashboard is running on (`un: sensu pw: mypass`)
 When you run container you can see which port the Sensu dashboard is listening on my running `docker ps` (`un: admin pw: secret`)
