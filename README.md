@@ -2,8 +2,9 @@ sensu-docker
 ============
 
 Dockerfile to Create a CentOS 6.x Sensu Server
+Initially forked from https://github.com/petecheslock/sensu-docker
 
-Grab the original Ubuntu-based container from the docker index here.  https://index.docker.io/u/petecheslock/sensu/
+Grab the original Ubuntu-based container from the docker index here.  https://index.docker.io/u/steeef/sensu-centos
 
 In some cases it's faster to build the docker container locally rather than pulling from the index.
 `sudo docker build github.com/monsooncommerce/sensu-docker`
