@@ -3,10 +3,10 @@ sensu-docker
 
 Dockerfile to Create a CentOS 6.x Sensu Server
 
-Grab the original Ubuntu-basedcontainer from the docker index here.  https://index.docker.io/u/petecheslock/sensu/
+Grab the original Ubuntu-based container from the docker index here.  https://index.docker.io/u/petecheslock/sensu/
 
 In some cases it's faster to build the docker container locally rather than pulling from the index.
-`sudo docker build github.com/petecheslock/sensu-docker`
+`sudo docker build github.com/monsooncommerce/sensu-docker`
 
 This is for testing only - SSL is not setup/configured for the server and clients.
 
