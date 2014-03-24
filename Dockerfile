@@ -6,7 +6,7 @@ RUN yum -y install sudo openssh-server redis erlang
 
 RUN rpm --import http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
 RUN rpm -Uvh http://www.rabbitmq.com/releases/rabbitmq-server/v3.1.4/rabbitmq-server-3.1.4-1.noarch.rpm
-rabbitmq-plugins enable rabbitmq_management
+RUN rabbitmq-plugins enable rabbitmq_management
 
 RUN useradd -d /home/sensu -m -s /bin/bash sensu
 RUN echo sensu:sensu | chpasswd
