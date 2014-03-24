@@ -10,14 +10,10 @@ This is for testing only - SSL is not setup/configured for the server and client
 Installs Erlang from source since EPEL-provided RPM includes dependencies for
 X11 libs.
 
+Run detached with pseudo-tty: sudo docker run -t -d steeef/sensu-centos
+
 Port `15672` is where the rabbitmq management dashboard is running on (`un: sensu pw: mypass`)
 When you run container you can see which port the Sensu dashboard is listening on my running `docker ps` (`un: admin pw: secret`)
-
-```
-docker@ubuntu:~$ sudo docker ps
-ID                  IMAGE                         COMMAND             CREATED             STATUS              PORTS
-cc88c90d715e        steeef/sensu:0.10.2-1   /bin/bash           5 minutes ago       Up 5 minutes        15672->15672, 49158->8080
-```
 
 By default - when starting the container, docker will start all the necessary services and start sshd.
 
