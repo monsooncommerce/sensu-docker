@@ -6,7 +6,7 @@ RUN yum -y install sudo openssh-server redis gcc glibc-devel make ncurses-devel 
 
 RUN curl -o /tmp/otp_src_R14B.tar.gz http://erlang.org/download/otp_src_R14B.tar.gz
 RUN tar -zxf /tmp/otp_src_R14B.tar.gz -C /tmp
-RUN cd /tmp/otp_src_R14B && ./configure PREFIX=/ && make && make install
+RUN cd /tmp/otp_src_R14B && ./configure && make && make install
 RUN cd $HOME; rm -rf /tmp/otp_src_R14B*
 
 RUN rpm --import http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
