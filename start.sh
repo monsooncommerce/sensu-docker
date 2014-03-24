@@ -10,6 +10,7 @@ rabbitmqctl set_user_tags sensu administrator
 /sbin/service sensu-api start
 /sbin/service sensu-client start
 /sbin/service sensu-dashboard start
+
 # sshd setup
 ssh-keygen -q -t rsa -f /etc/ssh/ssh_host_rsa_key -C '' -N ''
 ssh-keygen -q -t dsa -f /etc/ssh/ssh_host_dsa_key -C '' -N ''
