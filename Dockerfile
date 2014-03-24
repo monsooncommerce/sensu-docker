@@ -5,8 +5,8 @@ RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-
 RUN yum -y install sudo openssh-server redis gcc glibc-devel make ncurses-devel openssl-devel autoconf libxslt-devel
 
 RUN curl -o /tmp/otp_src_R14B.tar.gz http://erlang.org/download/otp_src_R14B.tar.gz
-RUN cd /tmp && tar -zxvf otp_src_R14B.tar.gz
-RUN cd otp_src_R14B && ./configure PREFIX=/ && make && make install
+RUN tar -zxf otp_src_R14B.tar.gz -C /tmp
+RUN cd /tmp/otp_src_R14B && ./configure PREFIX=/ && make && make install
 RUN cd $HOME; rm -rf /tmp/otp_src_R14B*
 
 RUN rpm --import http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
