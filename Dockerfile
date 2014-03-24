@@ -2,7 +2,12 @@ FROM centos:latest
 MAINTAINER Stephen Price <steeef@gmail.com>
 
 RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-RUN yum -y install sudo openssh-server redis erlang
+RUN yum -y install sudo openssh-server redis gcc glibc-devel make ncurses-devel openssl-devel autoconf
+
+RUN curl -O /tmp/otp_src_R14B.tar.gz http://erlang.org/download/otp_src_R14B.tar.gz
+RUN cd /tmp && tar -zxvf otp_src_R14B.tar.gz
+RUN cd otp_src_R14B && ./configure && make && make install
+RUN cd $HOME; rm -rf /tmp/otp_src_R14B
 
 RUN rpm --import http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
 RUN rpm -Uvh http://www.rabbitmq.com/releases/rabbitmq-server/v3.1.4/rabbitmq-server-3.1.4-1.noarch.rpm
