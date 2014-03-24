@@ -32,6 +32,7 @@ RUN chown -R rabbitmq. /etc/rabbitmq
 
 EXPOSE 15672
 EXPOSE 8080
+
 ADD start.sh /tmp/start.sh
 RUN chmod +x /tmp/start.sh
-CMD /tmp/start.sh
+ENTRYPOINT /tmp/start.sh
