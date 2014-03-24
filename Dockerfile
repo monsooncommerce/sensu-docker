@@ -19,8 +19,8 @@ RUN yum -y install sensu
 ADD config.json /etc/sensu/
 ADD client.json /etc/sensu/conf.d/client.json
 
-chown -R sensu. /etc/sensu
-chown -R rabbitmq. /etc/rabbitmq
+RUN chown -R sensu. /etc/sensu
+RUN chown -R rabbitmq. /etc/rabbitmq
 
 EXPOSE 15672:15672
 EXPOSE 8080
