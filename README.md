@@ -7,7 +7,7 @@ Initially forked from https://github.com/petecheslock/sensu-docker
 Grab the original Ubuntu-based container from the docker index here.  https://index.docker.io/u/steeef/sensu-centos
 
 In some cases it's faster to build the docker container locally rather than pulling from the index.
-`sudo docker build github.com/monsooncommerce/sensu-docker`
+`sudo docker build github.com/steeef/sensu-docker`
 
 This is for testing only - SSL is not setup/configured for the server and clients.
 
@@ -17,7 +17,7 @@ When you run container you can see which port the Sensu dashboard is listening o
 ```
 docker@ubuntu:~$ sudo docker ps
 ID                  IMAGE                         COMMAND             CREATED             STATUS              PORTS
-cc88c90d715e        monsooncommerce/sensu:0.10.2-1   /bin/bash           5 minutes ago       Up 5 minutes        15672->15672, 49158->8080
+cc88c90d715e        steeef/sensu:0.10.2-1   /bin/bash           5 minutes ago       Up 5 minutes        15672->15672, 49158->8080
 ```
 
 By default - when starting the container, docker will start all the necessary services and start sshd.

@@ -1,5 +1,5 @@
 FROM centos:latest
-MAINTAINER Stephen Price <sprice@monsooncommerce.com>
+MAINTAINER Stephen Price <steeef@gmail.com>
 
 RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 RUN yum -y install sudo openssh-server redis erlang
