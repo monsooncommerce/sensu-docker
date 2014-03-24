@@ -33,7 +33,4 @@ RUN chown -R rabbitmq. /etc/rabbitmq
 EXPOSE 15672
 EXPOSE 8080
 ADD start.sh /tmp/start.sh
-CMD ssh-keygen -q -t rsa -f /etc/ssh/ssh_host_rsa_key -C '' -N ''
-CMD ssh-keygen -q -t dsa -f /etc/ssh/ssh_host_dsa_key -C '' -N ''
-CMD ssh-keygen -q -t rsa1 -f /etc/ssh/ssh_host_key -C '' -N ''
-CMD /bin/bash /tmp/start.sh
+CMD ["/bin/bash", "/tmp/start.sh"]
