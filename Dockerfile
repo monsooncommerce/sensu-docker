@@ -1,8 +1,8 @@
-FROM ubuntu:precise
-MAINTAINER Pete Cheslock <petecheslock@gmail.com>
+FROM centos:latest
+MAINTAINER Stephen Price <sprice@monsooncommerce.com>
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise universe" >> /etc/apt/sources.list
-RUN apt-get install -y sudo openssh-server curl lsb-release git
+RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+RUN yum -y install openssh-server curl redis
 RUN dpkg-divert --local --rename --add /sbin/initctl
 RUN ln -s /bin/true /sbin/initctl
 RUN mkdir -p /var/run/sshd
