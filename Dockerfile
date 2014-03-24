@@ -22,7 +22,7 @@ ADD client.json /etc/sensu/conf.d/client.json
 RUN chown -R sensu. /etc/sensu
 RUN chown -R rabbitmq. /etc/rabbitmq
 
-EXPOSE 15672:15672
+EXPOSE 15672
 EXPOSE 8080
 ADD start.sh /tmp/start.sh
 CMD /tmp/start.sh
