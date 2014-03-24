@@ -2,11 +2,16 @@ FROM centos:latest
 MAINTAINER Stephen Price <sprice@monsooncommerce.com>
 
 RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-RUN yum -y install openssh-server redis erlang
+RUN yum -y install sudo openssh-server redis erlang
 
 RUN rpm --import http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
 RUN rpm -Uvh http://www.rabbitmq.com/releases/rabbitmq-server/v3.1.4/rabbitmq-server-3.1.4-1.noarch.rpm
 rabbitmq-plugins enable rabbitmq_management
+
+RUN useradd -d /home/sensu -m -s /bin/bash sensu
+RUN echo sensu:sensu | chpasswd
+RUN echo 'sensu ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/sensu
+RUN chmod 0440 /etc/sudoers.d/sensu
 
 ADD sensu.repo /etc/yum.repos.d/sensu.repo
 RUN yum -y install sensu
