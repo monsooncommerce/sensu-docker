@@ -13,4 +13,5 @@ rabbitmqctl set_user_tags sensu administrator
 /sbin/service sensu-api start
 /sbin/service sensu-client start
 /sbin/service sensu-dashboard start
-/usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no
+#/usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no
+/bin/bash
