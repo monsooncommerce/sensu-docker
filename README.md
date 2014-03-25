@@ -1,10 +1,12 @@
 sensu-docker
 ============
 
-Dockerfile to Create a CentOS 6.x Sensu Server
+Dockerfile to Create a CentOS 6.x Sensu Server with Wizardvan (for exporting to
+Graphite).
 Initially forked from https://github.com/petecheslock/sensu-docker
 
-Grab the original Ubuntu-based container from the docker index here.  https://index.docker.io/u/steeef/sensu-centos
+Docker Index:  https://index.docker.io/u/steeef/sensu-wizardvan-centos
+Docker Index of non-Wizardvan build:  https://index.docker.io/u/steeef/sensu-centos
 
 This is for testing only - SSL is not setup/configured for the server and clients.
 Installs Erlang from source since EPEL-provided RPM includes dependencies for
@@ -12,7 +14,7 @@ X11 libs.
 
 Run detached with pseudo-tty, publish ports:
 ```
-sudo docker run -P -t -d steeef/sensu-centos
+sudo docker run -P -t -d steeef/sensu-wizardvan-centos
 ```
 
 Port `15672` is where the rabbitmq management dashboard is running on (`un: sensu pw: mypass`)
