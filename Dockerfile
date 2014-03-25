@@ -2,7 +2,7 @@ FROM centos:latest
 MAINTAINER Stephen Price <steeef@gmail.com>
 
 RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-RUN yum -y install sudo openssh-server redis gcc glibc-devel make ncurses-devel openssl-devel autoconf libxslt-devel
+RUN yum -y install sudo openssh-server redis gcc glibc-devel make ncurses-devel openssl-devel autoconf libxslt-devel git
 
 RUN curl -o /tmp/otp_src_R14B.tar.gz http://erlang.org/download/otp_src_R14B.tar.gz
 RUN tar -zxf /tmp/otp_src_R14B.tar.gz -C /tmp
@@ -23,6 +23,11 @@ RUN chmod 0440 /etc/sudoers.d/sensu
 
 ADD sensu.repo /etc/yum.repos.d/sensu.repo
 RUN yum -y install sensu
+
+RUN git clone https://github.com/opower/sensu-metrics-relay.git /tmp/wizardvan
+RUN cp -R /tmp/wizardvan/lib/sensu/extensions/* /etc/sensu/extensions/
+RUN cp /tmp/wizardvan/config_relay.json /etc/sensu/conf.d/
+RUN rm -rf /tmp/wizardvan
 
 ADD config.json /etc/sensu/
 ADD client.json /etc/sensu/conf.d/client.json
