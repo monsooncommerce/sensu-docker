@@ -5,7 +5,6 @@ RUN yum -y install git
 
 RUN git clone https://github.com/opower/sensu-metrics-relay.git /tmp/wizardvan
 RUN cp -R /tmp/wizardvan/lib/sensu/extensions/* /etc/sensu/extensions/
-RUN cp /tmp/wizardvan/config_relay.json /etc/sensu/conf.d/
 RUN rm -rf /tmp/wizardvan
 
 EXPOSE 15672

@@ -1,9 +1,26 @@
 #!/bin/bash
+if [ -n "${GRAPHITE_PORT_TCP_ADDR}"] ; then
+    graphite_host = "${GRAPHITE_PORT_TCP_ADDR}"
+else
+    graphite_host = "127.0.0.1"
+fi
 /sbin/service rabbitmq-server start
 rabbitmqctl add_vhost /sensu
 rabbitmqctl add_user sensu mypass
 rabbitmqctl set_permissions -p /sensu sensu ".*" ".*" ".*"
 rabbitmqctl set_user_tags sensu administrator
+
+# wizardvan setup from Docker link
+cat > /etc/sensu/conf.d/config_relay.json <<EOF
+{
+    "relay": {
+        "graphite": {
+            "host": "${graphite_host}",
+            "port": 2003
+        }
+    }
+}
+EOF
 
 /sbin/service redis start
 /sbin/service sensu-server start
