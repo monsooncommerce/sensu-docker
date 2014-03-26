@@ -10,6 +10,7 @@ RUN rm -rf /tmp/wizardvan
 
 EXPOSE 15672
 EXPOSE 8080
+EXPOSE 22
 
 ADD start.sh /tmp/start.sh
 RUN chmod +x /tmp/start.sh
