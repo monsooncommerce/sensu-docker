@@ -1,6 +1,6 @@
 #!/bin/bash
-if [ -n "${GRAPHITE_PORT_TCP_ADDR}"] ; then
-    graphite_host = "${GRAPHITE_PORT_TCP_ADDR}"
+if [ -n "${GRAPHITE_PORT_2003_TCP_ADDR}"] ; then
+    graphite_host = "${GRAPHITE_PORT_2003_TCP_ADDR}"
 else
     graphite_host = "127.0.0.1"
 fi
