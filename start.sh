@@ -1,8 +1,8 @@
 #!/bin/bash
 if [ -n "${GRAPHITE_PORT_2003_TCP_ADDR}" ] ; then
-    graphite_host = "${GRAPHITE_PORT_2003_TCP_ADDR}"
+    graphite_host="${GRAPHITE_PORT_2003_TCP_ADDR}"
 else
-    graphite_host = "127.0.0.1"
+    graphite_host="127.0.0.1"
 fi
 /sbin/service rabbitmq-server start
 rabbitmqctl add_vhost /sensu
