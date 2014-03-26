@@ -1,4 +1,4 @@
-FROM steeef/sensu-centos:latest
+FROM steeef/sensu-centos
 MAINTAINER Stephen Price <steeef@gmail.com>
 
 RUN yum -y install git
